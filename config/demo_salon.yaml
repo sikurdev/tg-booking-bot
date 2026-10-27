@@ -1,0 +1,47 @@
+# Демо-конфіг для показу клієнтам. Замініть на свій файл для реального бізнесу.
+# Зміна клієнта = лише цей файл (і BOT_TOKEN / OWNER_CHAT_ID у .env).
+# Для реальних клієнтів можна лишити price: "Ціна за запитом".
+
+business:
+  name: "Демо-салон"
+  address: "м. Київ, вул. Хрещатик, 1 (демо)"
+  phone: "+380 44 000 00 00"
+  demo_note: "Це демонстрація бота запису від Дмитра. Дані вигадані; бронювання не створює реальний візит."
+  welcome_extra: "Демо від Дмитра"
+
+language: uk  # uk | ru
+
+# Крок сітки слотів і горизонт бронювання
+slot_step_minutes: 30
+booking_horizon_days: 14
+
+# Години роботи за днями тижня (0=пн … 6=нд). null або відсутній день = вихідний.
+working_hours:
+  0: { open: "10:00", close: "19:00" }  # понеділок
+  1: { open: "10:00", close: "19:00" }
+  2: { open: "10:00", close: "19:00" }
+  3: { open: "10:00", close: "19:00" }
+  4: { open: "10:00", close: "19:00" }
+  5: { open: "10:00", close: "16:00" }  # субота
+  # 6 неділя — вихідний
+
+# Додаткові вихідні (YYYY-MM-DD), наприклад свята
+days_off: []
+
+services:
+  - id: haircut
+    name: "Стрижка"
+    duration_minutes: 45
+    price: 400
+  - id: beard
+    name: "Борода / гоління"
+    duration_minutes: 30
+    price: 250
+  - id: color
+    name: "Фарбування"
+    duration_minutes: 90
+    price: 1200
+  - id: manicure
+    name: "Манікюр"
+    duration_minutes: 60
+    price: 450

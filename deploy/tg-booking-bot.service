@@ -1,0 +1,23 @@
+[Unit]
+Description=Telegram booking bot (demo / client)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/workspace/s8kur-forge/projects/tg-booking-bot
+# Point EnvironmentFile at your secrets (mode 600). Do not put the token in this unit.
+EnvironmentFile=/workspace/s8kur-forge/secrets/demo_bot.env
+Environment=BUSINESS_CONFIG=config/demo_salon.yaml
+Environment=DATABASE_PATH=data/bookings.db
+Environment=DEMO=1
+Environment=TIMEZONE=Europe/Kyiv
+ExecStart=/workspace/s8kur-forge/projects/tg-booking-bot/.venv/bin/python -m bot
+Restart=on-failure
+RestartSec=5
+# Harden a bit
+NoNewPrivileges=true
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
